@@ -197,6 +197,8 @@ _21. Modifiez la commande précédente pour que la liste des fichiers trouvés s
 _22. Dans votre dossier personnel, utilisez la commande grep pour chercher où est défini l’alias ll vu
 précédemment_
 
+On utilise : grep ll .bashrc
+
 _23. Utilisez la commande locate pour trouver le fichier history.log._
 
 Apres installation de mlocate on utilise la commande : locate history.log
