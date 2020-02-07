@@ -213,16 +213,24 @@ _24. Créer un fichier dans votre dossier personnel puis utilisez locate pour le
 
 _1. Commencez par créer une copie de ce fichier, que vous appellerez .bashrc_bak_
 
+On utilise la commande suivante: cp ~/.bashrc .bashrc_bak
+
 _2. Editez le fichier .bashrc avec nano et décommentez la ligne force_color_prompt=yes pour activer
 la couleur. Enregistrez le fichier et quittez nano._
+
+OK
 
 _3.  Le fichier .bashrc est lu au démarrage du shell ; pour le recharger, il faudrait donc se déconnecter
 puis se reconnecter ; mais il existe un autre moyen : la commande source .bashrc. Testez-la, l’invite
 de commande devrait immédiatement passer en couleurs._
 
+On utilise la commande source .bashrc pour éviter de se déconnecter et se reconnecter pour pouvoir afficher les couleurs dans l'invite de commande.
+
 _4.  Les couleurs par défauts (surtout celle du dossier courant) ne sont pas très visibles. Dans .bashrc,
 cherchez les lignes commençant par PS1= ; elles indiquent la mise en forme de l’invite de commande
 (selon que l’on est en couleurs ou non)._
+
+OK
 
 _La page suivante vous donne les différents codes couleurs possibles : https://misc.flogisoft.com/
 bash/tip_colors_and_formatting
@@ -230,5 +238,4 @@ Modifiez l’invite de commande pour qu’elle s’affiche sous la forme suivant
 [heure] - user@host:chemin_courant$
 où l’heure est affichée en violet et entre crochets, et le chemin du dossier courant en cyan_
 
-
-
+OK
