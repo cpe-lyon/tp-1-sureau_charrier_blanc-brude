@@ -4,29 +4,65 @@
 
 _1. Dans quels dossiers bash trouve-t-il les commandes tapées par l’utilisateur ?_
 
+Les commandes ne sont pas toutes stockées au même endroit.
+La variable PATH regroupe l'ensemble de ces chemins.
+Commande : echo $PATH
+
 _2. Quelle variable d’environnement permet à la commande cd tapée sans argument de vous ramener dans
 votre répertoire personnel ?_
 
+C'est la variable HOME.
+Commande : cd $HOME
+
 _3. Explicitez le rôle des variables LANG, PWD, OLDPWD, SHELL et _._
 
+LANG indique aux programmes dans quelle langue afficher les messages.
+PWD contient le chemin absolu vers le repertoire courant.
+OLDPWD contient le chemin absolu vers le précédent repertoire courant.
+SHELL contient le chemin de l'interpréteur utilisé.
+_ contient 
+
 _4. Créez une variable locale MY_VAR (le contenu n’a pas d’importance). Vérifiez que la variable existe._
+
+Commande : 
+MY_VAR="hello"
+echo $MY_VAR
 
 _5. Tapez ensuite la commande bash. Que fait-elle ? La variable MY_VAR existe-t-elle ? Expliquez. A la fin
 de cette question, tapez la commande exit pour revenir dans votre session initiale._
 
+Cela ouvre un sous shell  où MY_VAR n'existe pas. En effet on l'a crée localement donc elle existe uniquement sur le shell précédent.
+
 _6. Transformez MY_VAR en une variable d’environnement et recommencez la question précédente. Expliquez._
+
+Commande :
+export MY_VAR
+
+Desormais la variable existe aussi dans le sous shell.
 
 _7. Créer la variable d’environnement NOMS ayant pour contenu vos noms de binômes séparés par un espace.
 Afficher la valeur de NOMS pour vérifier que l’affectation est correcte._
 
+Commande :
+export NOMS="CHARRIER BLANCBRUDE SUREAU"
+echo $NOMS ou printenv NOMS
+
 _8. Ecrivez une commande qui affiche ”Bonjour à vous deux, binôme1 binôme2 !” (où binôme1 et binôme2
 sont vos deux noms) en utilisant la variable NOMS._
+
+Commande :
+echo "Bonjour à vous deux, $NOMS"
 
 _9. Quelle différence y a-t-il entre donner une valeur vide à une variable et l’utilisation de la commande
 unset ?_
 
+Donner une valeur vide à une variable fait qu'elle existe et est stocké. Avec unset cela supprime la variable.
+
 _10. Utilisez la commande echo pour écrire exactement la phrase : $HOME = chemin (où chemin est votre
 dossier personnel d’après bash)_
+
+Commande :
+echo '$HOME =' $HOME
 
 
 _Programmation Bash
