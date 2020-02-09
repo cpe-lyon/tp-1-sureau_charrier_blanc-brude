@@ -206,13 +206,13 @@ read -p "Quel est le bon nb : " rep
 
 if [ $rep -gt $corr ]
 
-then echo "Vous etes au dessus !"
+then echo "C'est moins !"
 
 elif [ $rep -lt $corr ]
 
 then
 
-echo "vous etes en dessous !"
+echo "C'est plus !"
 else
 
 echo "Gagné !"
