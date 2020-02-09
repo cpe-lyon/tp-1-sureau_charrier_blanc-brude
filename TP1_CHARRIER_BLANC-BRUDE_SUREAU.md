@@ -1,7 +1,7 @@
-# CR TP1 Administration système
+# CR TP1
 
 
-## Exercie 1 : OK
+## Exercice 1 : OK
 
 ## Exercice 2 :
 
