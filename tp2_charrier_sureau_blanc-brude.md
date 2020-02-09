@@ -65,16 +65,32 @@ Commande :
 echo '$HOME =' $HOME
 
 
-_Programmation Bash
-Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel.
+## Programmation Bash
+_Vous enregistrerez vos scripts dans un dossier script que vous créerez dans votre répertoire personnel.
 Tous les scripts sont bien entendu à tester.
 Ajoutez le chemin vers script à votre PATH de manière permanente_
+
+On utilise la commande : chmod +x myscript.sh pour rendre le script executable.
+Pour le lancer : bash myscript.sh
 
 ## Exercice 2. Contrôle de mot de passe
 
 Écrivez un script testpwd.sh qui demande de saisir un mot de passe et vérifie s’il correspond ou non au
 contenu d’une variable PASSWORD dont le contenu est codé en dur dans le script. Le mot de passe saisi par
 l’utilisateur ne doit pas s’afficher.
+
+#!/bin/bash
+
+PWD="azerty"
+echo "Saisissez votre mdp : "
+read -s MDP
+if [ "$MDP" = "$PWD" ]; then
+  echo "Correct"
+else
+  echo "Pas correct"
+fi
+
+
 
 ## Exercice 3. Expressions rationnelles
 Ecrivez un script qui prend un paramètre et utilise la fonction suivante pour vérifier que ce paramètre
