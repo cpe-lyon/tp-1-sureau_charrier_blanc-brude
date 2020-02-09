@@ -113,6 +113,26 @@ fi
 }
 Il affichera un message d’erreur dans le cas contraire.
 
+
+#!/bin/bash
+
+function is_number() {
+
+re='^[+-]?[0-9]+([.][0-9]+)?$'
+if ! [[ $1 =~ $re ]] ; then
+return 1
+else
+return 0
+fi }
+
+is_number $1
+if [ $? = 0 ]
+then
+echo  'nb chosis réel'
+else
+echo 'nb chosis non réel'
+fi
+
 ## Exercice 4. Contrôle d’utilisateur
 
 Écrivez un script qui vérifie l’existence d’un utilisateur dont le nom est donné en paramètre du script. Si le
@@ -120,15 +140,85 @@ script est appelé sans nom d’utilisateur, il affiche le message : ”Utilisat
 où nom_du_script est le nom de votre script récupéré automatiquement (si vous changez le nom de votre
 script, le message doit changer automatiquement)
 
+#!/bin/bash
+
+if [ $# != 1 ]
+
+then
+
+echo "Utilisation : users.sh nomdutilisateur"
+else
+
+if cut -d: -f1 /etc/passwd | sort -r | grep -q $1 ; then
+
+echo "Nom d'utilisateur présent"
+
+else
+
+echo "Nom d'utilisateur absent"
+
+fi
+
+fi
+
 ## Exercice 5. Factorielle
 
 Écrivez un programme qui calcule la factorielle d’un entier naturel passé en paramètre (on supposera que
 l’utilisateur saisit toujours un entier naturel).
 
+#!/bin/bash
+
+nb=$1
+
+fact=1
+
+while [ $nb -gt 1 ]
+
+do
+
+fact=$((fact * num))
+
+num=$((nb -1))
+done
+
+echo $fact
+
 ## Exercice 6. Le juste prix
 
 Écrivez un script qui génère un nombre aléatoire entre 1 et 1000 et demande à l’utilisateur de le deviner.
 Le programme écrira ”C’est plus !”, ”C’est moins !” ou ”Gagné !” selon les cas (vous utiliserez $RANDOM).
+
+#!/bin/bash
+
+nb=$RANDOM
+
+corr=$(($nb % 1000))
+
+echo $corr
+
+rep=0
+
+while [ $rep != $corr ]
+
+do
+
+read -p "Quel est le bon nb : " rep
+
+if [ $rep -gt $corr ]
+
+then echo "Vous etes au dessus !"
+
+elif [ $rep -lt $corr ]
+
+then
+
+echo "vous etes en dessous !"
+else
+
+echo "Gagné !"
+fi
+
+done
 
 ## Exercice 7. Statistiques
 
@@ -138,7 +228,28 @@ sont bien des entiers._
 
 _2. Généralisez le programme à un nombre quelconque de paramètres (pensez à SHIFT)_
 
+
+#!/bin/bash
+
+moyenne=0
+min=101
+max=-101
+
+for nombre in $*; do
+	moyenne= $(($moyenne + nombre))
+	if [ nombre -lt min ];
+	then
+		min=$nombre
+	fi
+	if [ nombre -gt max ];
+	then
+		max=$nombre
+	fi
+done
+
+moyenne=$(($moyenne/$#))
+
+echo "La moyenne vaut $moyenne, le maximum vaut $max et le minimum vaut $min"
+
 _3. Modifiez votre programme pour que les notes ne soient plus données en paramètres, mais saisies et
 stockées au fur et à mesure dans un tableau._
-
-
