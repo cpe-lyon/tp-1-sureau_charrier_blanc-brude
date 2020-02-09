@@ -82,12 +82,19 @@ l’utilisateur ne doit pas s’afficher.
 #!/bin/bash
 
 PWD="azerty"
+
 echo "Saisissez votre mdp : "
+
 read -s MDP
+
 if [ "$MDP" = "$PWD" ]; then
+
   echo "Correct"
+  
 else
+
   echo "Pas correct"
+  
 fi
 
 
